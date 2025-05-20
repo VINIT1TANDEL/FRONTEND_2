@@ -1,27 +1,16 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import {thunk} from "redux-thunk"; // ✅ fixed this line
+import {thunk}from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-
-import {
-  productReviewsReducer,
-  newProductReducer,
-  newReviewReducer,
+import {    productReviewsReducer, newProductReducer, newReviewReducer,
   productDetailsReducer,
-  productsReducer,
-  productReducer,
-  reviewReducer,
+  productsReducer,productReducer,  reviewReducer,
 } from "./reducers/productReducer";
-
-import {
-  allUsersReducer,
+import {   allUsersReducer,
   forgotPasswordReducer,
   profileReducer,
   userDetailsReducer,
-  userReducer,
-} from "./reducers/userReducer";
-
+  userReducer, } from "./reducers/userReducer";
 import { cartReducer } from "./reducers/cartReducer";
-
 import {
   allOrdersReducer,
   myOrdersReducer,
@@ -33,10 +22,10 @@ import {
 const reducer = combineReducers({
   products: productsReducer,
   productDetails: productDetailsReducer,
-  user: userReducer,
-  profile: profileReducer,
-  forgotPassword: forgotPasswordReducer,
-  cart: cartReducer,
+  user:userReducer,
+  profile:profileReducer,
+  forgotPassword:forgotPasswordReducer,
+  cart:cartReducer,
   newOrder: newOrderReducer,
   myOrders: myOrdersReducer,
   orderDetails: orderDetailsReducer,
@@ -51,7 +40,7 @@ const reducer = combineReducers({
   review: reviewReducer,
 });
 
-const initialState = {
+let initialState = {
   cart: {
     cartItems: localStorage.getItem("cartItems")
       ? JSON.parse(localStorage.getItem("cartItems"))
@@ -61,7 +50,6 @@ const initialState = {
       : {},
   },
 };
-
 const middleware = [thunk];
 
 const store = createStore(
