@@ -1,0 +1,215 @@
+/* orderDetails.css */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f1f3f6; /* Light grey background */
+  margin: 0;
+  padding: 0;
+}
+
+.orderDetailsPage {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0; /* Light border */
+}
+
+.orderDetailsContainer {
+  margin-bottom: 40px;
+}
+
+.orderDetailsTitle {
+  font-size: 2.5em;
+  color: #2874f0; /* Flipkart blue */
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.sectionTitle {
+  font-size: 2em;
+  color: #2874f0; /* Flipkart blue */
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.orderDetailsContainer p {
+  font-size: 1.2em;
+  margin: 5px 0;
+  color: #333;
+  font-weight: 500;
+}
+
+.orderDetailsContainer span {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.orderDetailsContainerBox {
+  display: flex;
+  flex-direction: column;
+  background: #fff; /* White background */
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  border: 1px solid #e0e0e0; /* Light border */
+}
+
+.greenColor {
+  color: #388e3c; /* Green color for success */
+}
+
+.redColor {
+  color: #d32f2f; /* Red color for failure */
+}
+
+.orderDetailsCartItems {
+  margin-top: 20px;
+}
+
+.orderDetailsCartItems h2 {
+  font-size: 2em;
+  color: #2874f0; /* Flipkart blue */
+}
+
+.orderDetailsCartItemsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.orderDetailsCartItemsContainer > div {
+  display: flex;
+  align-items: center;
+  background: #fff; /* White background */
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0; /* Light border */
+}
+
+.orderDetailsCartItemsContainer img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+  border: 2px solid #2874f0; /* Flipkart blue */
+}
+
+.orderDetailsCartItemsContainer a {
+  font-size: 1.2em;
+  color: #2874f0; /* Flipkart blue */
+  text-decoration: none;
+  margin-right: auto;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+.orderDetailsCartItemsContainer a:hover {
+  color: #ff8f00; /* Orange hover effect */
+}
+
+.orderDetailsCartItemsContainer span {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.orderDetailsCartItemsContainer b {
+  font-size: 1.2em;
+  color: #2874f0; /* Flipkart blue */
+}
+
+@media (max-width: 768px) {
+  .orderDetailsContainerBox {
+    flex-direction: column;
+  }
+
+  .orderDetailsCartItemsContainer > div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .orderDetailsCartItemsContainer img {
+    margin-bottom: 10px;
+  }
+
+  .orderDetailsCartItemsContainer a {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Additional styling for Typography component */
+.MuiTypography-root {
+  color: #2874f0 !important; /* Flipkart blue */
+}
+
+.MuiTypography-h1 {
+  font-size: 2.5em !important;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.MuiTypography-h6 {
+  font-size: 1.5em !important;
+  margin-bottom: 10px;
+}
+
+/* Loader component styling */
+.Loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.Loader:before {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 80px;
+  border: 10px solid #2874f0; /* Flipkart blue */
+  border-top: 10px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced styling */
+.orderDetailsContainer h1 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.orderDetailsContainer p,
+.orderDetailsContainer span {
+  display: inline-block;
+  margin: 5px 0;
+}
+
+.orderDetailsContainerBox div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.orderDetailsContainerBox p {
+  width: 150px;
+  font-weight: bold;
+}
+
+.orderDetailsContainerBox span {
+  flex-grow: 1;
+  text-align: right;
+}

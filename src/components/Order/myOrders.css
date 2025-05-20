@@ -1,0 +1,93 @@
+/* myOrders.css */
+
+:root {
+  --primary-color: #3498db; /* Sky blue color */
+  --secondary-color: #2ecc71; /* Green color */
+  --error-color: #e74c3c; /* Red color */
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --heading-font: 'Roboto', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.myOrdersPage {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.myOrdersTable {
+  width: 90%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.myOrdersTable .MuiDataGrid-cell {
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.myOrdersTable .MuiDataGrid-columnHeader {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.1rem;
+}
+
+.myOrdersTable .MuiDataGrid-footerContainer {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.myOrdersTable .greenColor {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.myOrdersTable .redColor {
+  color: var(--error-color);
+  font-weight: bold;
+}
+
+#myOrdersHeading {
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-top: 20px;
+  text-align: center;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.MuiButtonBase-root {
+  color: var(--primary-color);
+}
+
+.MuiButtonBase-root:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+@media (max-width: 768px) {
+  .myOrdersPage {
+    padding: 10px;
+  }
+
+  .myOrdersTable {
+    width: 100%;
+  }
+
+  #myOrdersHeading {
+    font-size: 1.5rem;
+  }
+}

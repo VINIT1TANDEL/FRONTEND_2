@@ -1,0 +1,176 @@
+.profileContainer {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  background: url('../../images/Free-download-Scenery-Backgrounds-HD.jpg') no-repeat center center/cover;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.profileContainer > div {
+  display: flex;
+  height: 100vh;
+  width: 50vw;
+  max-width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  padding: 3rem;
+}
+
+.profileContainer > div:first-child {
+  /* background: url('../../images/Free-download-Scenery-Backgrounds-HD.jpg') no-repeat center center/cover; */
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.profileContainer > div:first-child:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.profileContainer > div:first-child > h1 {
+  color: black; /* Change text color to white */
+  font: 500 2.5vmax "Roboto";
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add text shadow for better contrast */
+}
+
+
+.profileContainer > div:first-child > img {
+  width: 18vmax;
+  border-radius: 50%;
+  transition: transform 0.5s, box-shadow 0.5s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profileContainer > div:first-child > img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.profileContainer > div:first-child > a {
+  border: none;
+  background-color: #4a90e2;
+  font: 400 1.2vmax "Roboto";
+  color: white;
+  text-decoration: none;
+  padding: 0.8vmax 2vmax;
+  margin-top: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+.profileContainer > div:first-child > a:hover {
+  background-color: #357abd;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.profileContainer > div:last-child {
+  /* background: url('../../images/nature-fonar-dom-pasmurno-peizazh-155665.jpeg') no-repeat center center/cover; */
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  justify-content: space-evenly;
+  align-items: flex-start;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  box-sizing: border-box;
+}
+
+.profileContainer > div:last-child:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.profileContainer > div:last-child > div {
+  width: 100%;
+}
+
+.profileContainer > div:last-child > div > h4 {
+  color:#f8f4e3; /* Change text color to white */
+  font: 500 1.8vmax "Roboto";
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add text shadow for better contrast */
+}
+
+.profileContainer > div:last-child > div > p {
+  color: black; /* Change text color to white */
+  /* Change text color to off-white */
+  font: 400 1.3vmax "Roboto";
+  margin: 0.7vmax 0;
+  line-height: 1.5;
+  text-align: center; /* Center align the text */
+}
+
+.profileContainer > div:last-child > div:last-child {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.profileContainer > div:last-child > div:last-child > a {
+  border: none;
+  background-color: #444;
+  font: 400 1.3vmax "Roboto";
+  color: white;
+  text-decoration: none;
+  padding: 1vmax 2.5vmax;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.5s, box-shadow 0.5s;
+  margin: 1.2vmax 0;
+}
+
+.profileContainer > div:last-child > div:last-child > a:hover {
+  background-color: #1f1f1f;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+  
+  @media screen and (max-width: 600px) {
+    .profileContainer {
+      flex-direction: column;
+    }
+  
+    .profileContainer > div:first-child > h1 {
+      font: 500 3.2vmax "Roboto";
+      transform: translateY(-2vmax);
+    }
+  
+    .profileContainer > div:first-child > a {
+      font: 400 1.7vmax "Roboto";
+      padding: 1vmax;
+    }
+  
+    .profileContainer > div:last-child {
+      text-align: center;
+      align-items: center;
+    }
+  
+    .profileContainer > div:last-child > div > h4 {
+      font: 400 2.5vmax "Roboto";
+    }
+  
+    .profileContainer > div:last-child > div > p {
+      font: 400 2vmax cursive;
+      margin: 0.5vmax 0;
+    }
+  
+    .profileContainer > div:last-child > div:last-child > a {
+      font: 400 1.8vmax "Roboto";
+      padding: 1vmax;
+      margin: 2vmax 0;
+    }
+  }
