@@ -48,7 +48,10 @@ function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const { data } = await axios.get("https://backend-9-ngeu.onrender.com/api/v1/stripeapikey");
+     const { data } = await axios.get(
+      "https://backend-9-ngeu.onrender.com/api/v1/stripeapikey",
+      { withCredentials: true }
+    );
     setStripeApiKey(data.stripeApiKey);
   }
 
