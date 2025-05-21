@@ -46,10 +46,14 @@ import {
       const config = { headers: { "Content-Type": "application/json" } };
   
       const { data } = await axios.post(
-        `https://backend-9-ngeu.onrender.com/api/v1/login`,
-        { email, password },
-        config
-      );
+  `https://backend-9-ngeu.onrender.com/api/v1/login`,
+  { email, password },
+  {
+    headers: { "Content-Type": "application/json" },
+    withCredentials: true,
+  }
+);
+
   
       dispatch({ type: LOGIN_SUCCESS, payload: data.user });
     } catch (error) {
@@ -62,7 +66,11 @@ import {
     try {
       dispatch({ type: REGISTER_USER_REQUEST });
   
-      const config = { headers: { "Content-Type": "multipart/form-data" } };
+      const config = {
+  headers: { "Content-Type": "multipart/form-data" },
+  withCredentials: true,
+};
+
   
       const { data } = await axios.post(`https://backend-9-ngeu.onrender.com/api/v1/register`, userData, config);
   
@@ -79,7 +87,11 @@ import {
   export const loadUser = () => async (dispatch) => {
     try {
       dispatch({ type: LOAD_USER_REQUEST });
-      const { data } = await axios.get(`https://backend-9-ngeu.onrender.com/api/v1/me`);
+      const { data } = await axios.get(
+  `https://backend-9-ngeu.onrender.com/api/v1/me`,
+  { withCredentials: true }
+);
+
       dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
     } catch (error) {
       dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
@@ -89,7 +101,10 @@ import {
   // Logout User
   export const logout = () => async (dispatch) => {
     try {
-      await axios.get(`https://backend-9-ngeu.onrender.com/api/v1/logout`);
+    await axios.get(`https://backend-9-ngeu.onrender.com/api/v1/logout`, {
+  withCredentials: true,
+});
+
   
       dispatch({ type: LOGOUT_SUCCESS });
     } catch (error) {
@@ -102,9 +117,16 @@ import {
     try {
       dispatch({ type: UPDATE_PROFILE_REQUEST });
   
-      const config = { headers: { "Content-Type": "multipart/form-data" } };
-  
-      const { data } = await axios.put(`https://backend-9-ngeu.onrender.com/api/v1/me/update`, userData, config);
+     const config = {
+  headers: { "Content-Type": "multipart/form-data" },
+  withCredentials: true,
+};
+const { data } = await axios.put(
+  `https://backend-9-ngeu.onrender.com/api/v1/me/update`,
+  userData,
+  config
+);
+
   
       dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success });
     } catch (error) {
@@ -120,7 +142,11 @@ import {
     try {
       dispatch({ type: UPDATE_PASSWORD_REQUEST });
   
-      const config = { headers: { "Content-Type": "application/json" } };
+ const config = {
+  headers: { "Content-Type": "application/json" },
+  withCredentials: true,
+};
+
   
       const { data } = await axios.put(
         `https://backend-9-ngeu.onrender.com/api/v1/password/update`,
@@ -160,7 +186,11 @@ import {
     try {
       dispatch({ type: RESET_PASSWORD_REQUEST });
   
-      const config = { headers: { "Content-Type": "application/json" } };
+      const config = {
+  headers: { "Content-Type": "application/json" },
+  withCredentials: true,
+};
+
   
       const { data } = await axios.put(
         `https://backend-9-ngeu.onrender.com/api/v1/password/reset/${token}`,
@@ -181,8 +211,11 @@ import {
   export const getAllUsers = () => async (dispatch) => {
     try {
       dispatch({ type: ALL_USERS_REQUEST });
-      const { data } = await axios.get(`https://backend-9-ngeu.onrender.com/api/v1/admin/users`);
-  
+     const { data } = await axios.get(
+  `https://backend-9-ngeu.onrender.com/api/v1/admin/users`,
+  { withCredentials: true }
+);
+
       dispatch({ type: ALL_USERS_SUCCESS, payload: data.users });
     } catch (error) {
       dispatch({ type: ALL_USERS_FAIL, payload: error.response.data.message });
@@ -193,7 +226,8 @@ import {
   export const getUserDetails = (id) => async (dispatch) => {
     try {
       dispatch({ type: USER_DETAILS_REQUEST });
-      const { data } = await axios.get(`https://backend-9-ngeu.onrender.com/api/v1/admin/user/${id}`);
+      const { data } = await axios.get(`https://backend-9-ngeu.onrender.com/api/v1/admin/user/${id}`,
+  { withCredentials: true });
   
       dispatch({ type: USER_DETAILS_SUCCESS, payload: data.user });
     } catch (error) {
@@ -206,7 +240,8 @@ import {
     try {
       dispatch({ type: UPDATE_USER_REQUEST });
   
-      const config = { headers: { "Content-Type": "application/json" } };
+      const config = { headers: { "Content-Type": "application/json" } ,
+  { withCredentials: true } };
   
       const { data } = await axios.put(
         `https://backend-9-ngeu.onrender.com/api/v1/admin/users/${id}`,
@@ -228,7 +263,8 @@ import {
     try {
       dispatch({ type: DELETE_USER_REQUEST });
   
-      const { data } = await axios.delete(`https://backend-9-ngeu.onrender.com/api/v1/admin/users/${id}`);
+      const { data } = await axios.delete(`https://backend-9-ngeu.onrender.com/api/v1/admin/users/${id}` ,
+  { withCredentials: true });
   
       dispatch({ type: DELETE_USER_SUCCESS, payload: data });
     } catch (error) {
