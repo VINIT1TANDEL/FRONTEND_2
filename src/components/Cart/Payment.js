@@ -54,12 +54,13 @@ const Payment = () => {
         headers: {
           "Content-Type": "application/json",
         },
+         withCredentials: true
       };
       const { data } = await axios.post(
-        "/api/v1/payment/process",
-        paymentData,
-        config
-      );
+  "https://backend-9-ngeu.onrender.com/api/v1/payment/process",
+  paymentData,
+  config
+);
 
       const client_secret = data.client_secret;
 
