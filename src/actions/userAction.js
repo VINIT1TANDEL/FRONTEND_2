@@ -240,8 +240,7 @@ const { data } = await axios.put(
     try {
       dispatch({ type: UPDATE_USER_REQUEST });
   
-      const config = { headers: { "Content-Type": "application/json" } ,
-  { withCredentials: true } };
+      const config = { headers: { "Content-Type": "application/json" } , withCredentials: true  };
   
       const { data } = await axios.put(
         `https://backend-9-ngeu.onrender.com/api/v1/admin/users/${id}`,
