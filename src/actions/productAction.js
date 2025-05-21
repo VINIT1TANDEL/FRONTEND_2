@@ -41,7 +41,8 @@ export const getProduct = (keyword="",currentPage=1,price=[0,250000],category,ra
       link = `https://backend-9-ngeu.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`;
     }
 
-    const { data } = await axios.get(link);
+   const { data } = await axios.get(link, { withCredentials: true });
+
     dispatch({
       type: ALL_PRODUCT_SUCCESS,
       payload: data,
@@ -59,7 +60,10 @@ export const getAdminProduct = () => async (dispatch) => {
   try {
     dispatch({ type: ADMIN_PRODUCT_REQUEST });
 
-    const { data } = await axios.get("https://backend-9-ngeu.onrender.com/api/v1/admin/products");
+   const { data } = await axios.get("https://backend-9-ngeu.onrender.com/api/v1/admin/products", {
+  withCredentials: true,
+});
+
 
     dispatch({
       type: ADMIN_PRODUCT_SUCCESS,
@@ -79,8 +83,10 @@ export const createProduct = (productData) => async (dispatch) => {
     dispatch({ type: NEW_PRODUCT_REQUEST });
 
     const config = {
-      headers: { "Content-Type": "application/json" },
-    };
+  headers: { "Content-Type": "application/json" },
+  withCredentials: true,
+};
+
 
     const { data } = await axios.post(
       `https://backend-9-ngeu.onrender.com/api/v1/admin/products/new`,
@@ -106,8 +112,10 @@ export const updateProduct = (id, productData) => async (dispatch) => {
     dispatch({ type: UPDATE_PRODUCT_REQUEST });
 
     const config = {
-      headers: { "Content-Type": "application/json" },
-    };
+  headers: { "Content-Type": "application/json" },
+  withCredentials: true,
+};
+
 
     const { data } = await axios.put(
       `https://backend-9-ngeu.onrender.com/api/v1/admin/products/${id}`,
@@ -139,7 +147,10 @@ export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
 
-    const { data } = await axios.delete(`https://backend-9-ngeu.onrender.com/api/v1/admin/products/${id}`);
+   const { data } = await axios.delete(
+  `https://backend-9-ngeu.onrender.com/api/v1/admin/products/${id}`,
+  { withCredentials: true }
+);
 
     dispatch({
       type: DELETE_PRODUCT_SUCCESS,
@@ -174,7 +185,11 @@ export const getProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`https://backend-9-ngeu.onrender.com/api/v1/products/${id}`);
+    const { data } = await axios.get(
+  `https://backend-9-ngeu.onrender.com/api/v1/products/${id}`,
+  { withCredentials: true }
+);
+
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
@@ -194,8 +209,10 @@ export const newReview = (reviewData) => async (dispatch) => {
     dispatch({ type: NEW_REVIEW_REQUEST });
 
     const config = {
-      headers: { "Content-Type": "application/json" },
-    };
+  headers: { "Content-Type": "application/json" },
+  withCredentials: true,
+};
+
 
     const { data } = await axios.put(`https://backend-9-ngeu.onrender.com/api/v1/review`, reviewData, config);
 
@@ -216,7 +233,11 @@ export const getAllReviews = (id) => async (dispatch) => {
   try {
     dispatch({ type: ALL_REVIEW_REQUEST });
 
-    const { data } = await axios.get(`https://backend-9-ngeu.onrender.com/api/v1/reviews?id=${id}`);
+   const { data } = await axios.get(
+  `https://backend-9-ngeu.onrender.com/api/v1/reviews?id=${id}`,
+  { withCredentials: true }
+);
+
 
     dispatch({
       type: ALL_REVIEW_SUCCESS,
@@ -235,9 +256,11 @@ export const deleteReviews = (reviewId, productId) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_REVIEW_REQUEST });
 
-    const { data } = await axios.delete(
-      `https://backend-9-ngeu.onrender.com/api/v1/reviews?id=${reviewId}&productId=${productId}`
-    );
+   const { data } = await axios.delete(
+  `https://backend-9-ngeu.onrender.com/api/v1/reviews?id=${reviewId}&productId=${productId}`,
+  { withCredentials: true }
+);
+
 
     dispatch({
       type: DELETE_REVIEW_SUCCESS,
