@@ -1,6 +1,5 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import {thunk}from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { thunk } from "redux-thunk";
 import {    productReviewsReducer, newProductReducer, newReviewReducer,
   productDetailsReducer,
   productsReducer,productReducer,  reviewReducer,
@@ -18,6 +17,7 @@ import {
   orderDetailsReducer,
   orderReducer,
 } from "./reducers/orderReducer";
+
 
 const reducer = combineReducers({
   products: productsReducer,
@@ -50,12 +50,16 @@ let initialState = {
       : {},
   },
 };
+
 const middleware = [thunk];
+
+// ✅ Safe Redux DevTools fallback
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   reducer,
   initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeEnhancer(applyMiddleware(...middleware))
 );
 
 export default store;
